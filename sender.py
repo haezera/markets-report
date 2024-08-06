@@ -12,13 +12,12 @@ import datetime
 from config import *
 
 today = dt.datetime.today().strftime("%Y-%m-%d")
-
 receivers = ["haeohreum09@hotmail.com"]
 subject = f"Daily Markets Report {today}"
 
 html_exporter = HTMLExporter()
 html_exporter.exclude_input = True
-with open("./report.ipynb") as f:
+with open(path) as f:
     nb = nbformat.read(f, as_version=4)
 ep = ExecutePreprocessor(timeout=-1)
 ep.preprocess(nb)
